@@ -6,10 +6,16 @@ import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import java.util.*;
+import co.edureka.dao.MoviesDAO;
+import co.edureka.dao.UsersDAO;
+import co.edureka.model.Movies;
 
 /**
  * Handles requests for the application home page.
@@ -26,13 +32,11 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+		ApplicationContext context = new ClassPathXmlApplicationContext("SpringConfig.xml");		
+		UsersDAO dao = context.getBean("usersDAO", UsersDAO.class);
+		MoviesDAO mdao = context.getBean("moviesDAO", MoviesDAO.class); 
+		List<Movies> movies = mdao.findAll();
+		model.addAttribute("listOfMovies", movies);
 		return "home";
 	}
 	

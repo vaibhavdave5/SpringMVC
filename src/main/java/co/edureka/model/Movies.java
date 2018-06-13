@@ -100,11 +100,11 @@ public class Movies {
 	}
 	@Id
 	private String id;
-	private String title;
+	public String title;
 	private int year;
 	private int runtime;
 	private List<String> cast;
-	private String poster;
+	public String poster;
 	private String plot;
 	private String fullplot;
 	private String lastupdated;
