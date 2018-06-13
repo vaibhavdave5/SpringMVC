@@ -20,6 +20,6 @@ public class MoviesDAO {
 	}
 	
 	public List<Movies> findAll() {
-		return mongoOperations.find(new Query().limit(10),Movies.class);
+		return mongoOperations.find(new Query().limit(12),Movies.class);
 	}
 }

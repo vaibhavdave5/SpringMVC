@@ -91,7 +91,14 @@
 				<c:forEach items="${listOfMovies}" var="movie">
 					<div class="col-md-4">
 						<div class="card mb-4 box-shadow">
-							<img class="card-img-top" src="<c:url value="${movie.poster}"/>">
+							<img class="card-img-top" height="185.5vw"  src="<c:choose>
+    															<c:when test="${empty movie.poster}">
+        																https://thumb7.shutterstock.com/display_pic_with_logo/457558/549465907/stock-vector-not-available-grunge-rubber-stamp-on-white-background-vector-illustration-549465907.jpg
+    															</c:when>
+    														 <c:otherwise>
+        																	<c:url value="${movie.poster}"/>
+    														 </c:otherwise>
+																</c:choose>">
 							<div class="card-body">
 								<p class="card-text">This is a wider card with supporting
 									text below as a natural lead-in to additional content. This
@@ -107,45 +114,7 @@
 						</div>
 					</div>
 				</c:forEach>
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img-top"
-								data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-								alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting
-									text below as a natural lead-in to additional content. This
-									content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
 								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card mb-4 box-shadow">
-							<img class="card-img-top"
-								data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-								alt="Card image cap">
-							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting
-									text below as a natural lead-in to additional content. This
-									content is a little bit longer.</p>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-									</div>
-									<small class="text-muted">9 mins</small>
-								</div>
-							</div>
-						</div>
-					</div>
-			</div>
 		</div>
 	</div>
 
