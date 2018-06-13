@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 
+import co.edureka.dao.UsersDAO;
+
 public class SpringMongoConfig extends AbstractMongoConfiguration{
 
 	@Override
@@ -20,5 +22,5 @@ public class SpringMongoConfig extends AbstractMongoConfiguration{
 	protected String getDatabaseName() {
 		return "mflix";
 	}
-
+	
 }

@@ -12,12 +12,13 @@
 
 	<mongo:mongo-client 
 	host="mongodb+srv://analytics:analytics-password@mflix-ui0uw.mongodb.net/test?retryWrites=true" port="27017" />
-		<mongo:db-factory dbname="yourdb" />
+		<mongo:db-factory dbname="mflix" />
 
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
 	</bean>
 	
 	<bean id="usersDAO" class="co.edureka.dao.UsersDAO" />
+	<bean id="moviesDAO" class="co.edureka.dao.MoviesDAO" />
 
 </beans>
