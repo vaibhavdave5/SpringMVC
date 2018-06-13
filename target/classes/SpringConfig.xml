@@ -17,5 +17,7 @@
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
 	</bean>
+	
+	<bean id="usersDAO" class="co.edureka.dao.UsersDAO" />
 
 </beans>
