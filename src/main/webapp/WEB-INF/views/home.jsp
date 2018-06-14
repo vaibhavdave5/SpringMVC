@@ -85,13 +85,27 @@
 		</div>
 	</section>
 	<div class="album py-5 bg-light">
+
+		<nav aria-label="...">
+				<ul class="pagination justify-content-center">
+					<li class="page-item disabled"><a class="page-link" href="#"
+						tabindex="-1">Previous</a></li>
+					<c:forEach begin="${currentPage}" end="${currentPage+10}"
+						varStatus="loop">
+						<li class="page-item"><a class="page-link" href="http://localhost:8080/project/nav?id=${loop.index}">${loop.index}</a></li>
+					</c:forEach>
+					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				</ul>
+		</nav>
+
 		<div class="container">
 			<div class="row">
 
 				<c:forEach items="${listOfMovies}" var="movie">
 					<div class="col-md-4">
 						<div class="card mb-4 box-shadow">
-							<img class="card-img-top" height="260.5vw"  src="<c:choose>
+							<img class="card-img-top" height="260.5vw"
+								src="<c:choose>
     															<c:when test="${empty movie.poster}">
         																https://thumb7.shutterstock.com/display_pic_with_logo/457558/549465907/stock-vector-not-available-grunge-rubber-stamp-on-white-background-vector-illustration-549465907.jpg
     															</c:when>
@@ -100,7 +114,15 @@
     														 </c:otherwise>
 																</c:choose>">
 							<div class="card-body">
-								<div style="display: inline"><p><h5 class="card-title">${movie.title}</h5> <h6><span class="badge badge-warning"><strong>IMDB: ${movie.imdb.rating}</strong></h6></p></div>
+								<div style="display: inline">
+									<p>
+									<h5 class="card-title">${movie.title}</h5>
+									<h6>
+										<span class="badge badge-warning"><strong>IMDB:
+												${movie.imdb.rating}</strong>
+									</h6>
+									</p>
+								</div>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
 										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -111,7 +133,7 @@
 						</div>
 					</div>
 				</c:forEach>
-								</div>
+			</div>
 		</div>
 	</div>
 

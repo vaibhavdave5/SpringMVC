@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.*;
 import co.edureka.dao.MoviesDAO;
 import co.edureka.dao.UsersDAO;
@@ -24,21 +26,37 @@ import co.edureka.model.Movies;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private ApplicationContext context;		
+	private UsersDAO dao;
+	private MoviesDAO mdao;
+	
+	public HomeController() {
+		this.context = new ClassPathXmlApplicationContext("SpringConfig.xml");		
+		this.dao = context.getBean("usersDAO", UsersDAO.class);
+		this.mdao = context.getBean("moviesDAO", MoviesDAO.class);
+	}
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		ApplicationContext context = new ClassPathXmlApplicationContext("SpringConfig.xml");		
-		UsersDAO dao = context.getBean("usersDAO", UsersDAO.class);
-		MoviesDAO mdao = context.getBean("moviesDAO", MoviesDAO.class); 
-		List<Movies> movies = mdao.findCurrentSet();
+		logger.info("Welcome home! The client locale is {}.", locale); 
+		List<Movies> movies = mdao.findCurrentSet(0);
 		model.addAttribute("listOfMovies", movies);
-		System.out.println(mdao.findAll().size());
+		model.addAttribute("totalCount", 46014);
+		model.addAttribute("currentPage", 1);
+	//	System.out.println(mdao.findAll().size()); // 46014
 		return "home";
 	}
+	
+	
+	@RequestMapping(value = "/nav", params="id", method = RequestMethod.GET)
+    public String homeWithPagination(@RequestParam("id") int id, Model model) {
+		List<Movies> movies = mdao.findCurrentSet(id);
+		model.addAttribute("listOfMovies", movies);
+		model.addAttribute("currentPage", id);
+		return "home";
+    }
 	
 }

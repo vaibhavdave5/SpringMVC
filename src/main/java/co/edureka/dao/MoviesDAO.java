@@ -19,8 +19,8 @@ public class MoviesDAO {
 		this.mongoOperations = context.getBean("mongoTemplate", MongoOperations.class);
 	}
 	
-	public List<Movies> findCurrentSet() {
-		return mongoOperations.find(new Query().limit(12),Movies.class);
+	public List<Movies> findCurrentSet(int skip) {
+		return mongoOperations.find(new Query().skip(skip*12).limit(12),Movies.class);
 	}
 	
 	public List<Movies> findAll() {
