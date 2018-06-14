@@ -33,7 +33,8 @@
 
 <!-- Custom styles for this template -->
 <link href="<c:url value="/resources/main.css" />" rel="stylesheet">
-<script src="<c:url value="/resources/main.js" />" type="text/javascript"></script>
+<script src="<c:url value="/resources/main.js" />"
+	type="text/javascript"></script>
 </head>
 
 <body>
@@ -135,7 +136,8 @@
 								</div>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+										<a class="btn btn-sm btn-outline-secondary"
+											href="${pageContext.request.contextPath}/view?id=${movie.id}">View</a>
 									</div>
 									<small class="text-muted"> <!-- Something can be added -->
 									</small>

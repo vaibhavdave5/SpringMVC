@@ -66,4 +66,11 @@ public class HomeController {
 		return "home";
     }
 	
+	@RequestMapping(value = "/view", params="id", method = RequestMethod.GET)
+    public String view(@RequestParam("id") String id, Model model) {
+		Movies movie = mdao.findbyId(id);
+		model.addAttribute("movie", movie);
+		return "view";
+    }
+	
 }

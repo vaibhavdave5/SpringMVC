@@ -1,8 +1,10 @@
 package co.edureka.dao;
 
+import org.bson.types.ObjectId;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.List;
@@ -23,7 +25,7 @@ public class MoviesDAO {
 		return mongoOperations.find(new Query().skip(skip*12).limit(12),Movies.class);
 	}
 	
-	public List<Movies> findAll() {
-		return mongoOperations.find(new Query(),Movies.class);
+	public Movies findbyId(String id) {
+		return mongoOperations.find(new Query(Criteria.where("_id").is(new ObjectId(id))),Movies.class).get(0);
 	}
 }
