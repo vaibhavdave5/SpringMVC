@@ -33,6 +33,7 @@
 
 <!-- Custom styles for this template -->
 <link href="<c:url value="/resources/main.css" />" rel="stylesheet">
+<script src="<c:url value="/resources/main.js" />" type="text/javascript"></script>
 </head>
 
 <body>
@@ -76,7 +77,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<h2>Jumbotron</h2>
+					<h1>
+						<a href="" class="typewrite" data-period="2000"
+							data-type='[ "Hi, Im Vaibhav.", "Please Appreciate my work", "It takes time and effort to do such things", "I Love to Develop." ]'>
+							<span class="wrap"></span>
+						</a>
+					</h1>
 					<p>Lorem ipsum is the best</p>
 					<a href="#" class="btn btn-success btn-lg">Sign Up</a>
 				</div>
@@ -88,17 +94,17 @@
 		<nav aria-label="...">
 			<ul class="pagination justify-content-center">
 				<li class="page-item"><a class="page-link"
-					href="${pageContext.request.contextPath}/nav?id=${currentPage-10}"
+					href="${pageContext.request.contextPath}/nav?id=${currentPage-5}"
 					tabindex="-1">Previous</a></li>
 				<li class="page-item active"><a class="page-link"
 					href="${pageContext.request.contextPath}/nav?id=${currentPage}">${currentPage}</a></li>
-				<c:forEach begin="${currentPage+1}" end="${currentPage+10}"
+				<c:forEach begin="${currentPage+1}" end="${currentPage+5}"
 					varStatus="loop">
 					<li class="page-item"><a class="page-link"
 						href="${pageContext.request.contextPath}/nav?id=${loop.index}">${loop.index}</a></li>
 				</c:forEach>
 				<li class="page-item"><a class="page-link"
-					href="${pageContext.request.contextPath}/nav?id=${currentPage+10}">Next</a></li>
+					href="${pageContext.request.contextPath}/nav?id=${currentPage+5}">Next</a></li>
 			</ul>
 		</nav>
 
@@ -131,8 +137,7 @@
 									<div class="btn-group">
 										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
 									</div>
-									<small class="text-muted">
-										<!-- Something can be added -->
+									<small class="text-muted"> <!-- Something can be added -->
 									</small>
 								</div>
 							</div>
