@@ -88,14 +88,14 @@
 
 		<nav aria-label="...">
 				<ul class="pagination justify-content-center">
-					<li class="page-item"><a class="page-link" href="http://localhost:8080/project/nav?id=${currentPage-10}"
+					<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/nav?id=${currentPage-10}"
 						tabindex="-1">Previous</a></li>
-						<li class="page-item active"><a class="page-link" href="http://localhost:8080/project/nav?id=${currentPage}">${currentPage}</a></li>
+						<li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/nav?id=${currentPage}">${currentPage}</a></li>
 					<c:forEach begin="${currentPage+1}" end="${currentPage+10}"
 						varStatus="loop">
-						<li class="page-item"><a class="page-link" href="http://localhost:8080/project/nav?id=${loop.index}">${loop.index}</a></li>
+						<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/nav?id=${loop.index}">${loop.index}</a></li>
 					</c:forEach>
-					<li class="page-item"><a class="page-link" href="http://localhost:8080/project/nav?id=${currentPage+10}">Next</a></li>
+					<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/nav?id=${currentPage+10}">Next</a></li>
 				</ul>
 		</nav>
 
@@ -128,7 +128,7 @@
 									<div class="btn-group">
 										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
 									</div>
-									<small class="text-muted">9 mins</small>
+									<small class="text-muted"><!-- Something can be added --></small>
 								</div>
 							</div>
 						</div>
