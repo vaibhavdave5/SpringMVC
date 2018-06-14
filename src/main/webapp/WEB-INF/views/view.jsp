@@ -10,6 +10,7 @@
 <%@page import="co.edureka.dao.*"%>
 <%@page import="java.util.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <html lang="en">
 <head>
@@ -33,6 +34,7 @@
 
 <!-- Custom styles for this template -->
 <link href="<c:url value="/resources/main.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/comments.css" />" rel="stylesheet">
 <script src="<c:url value="/resources/main.js" />"
 	type="text/javascript"></script>
 </head>
@@ -93,8 +95,16 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-4">
-				<img src="${movie.poster}" class="rounded"
-					alt="${movie.title}">
+				<img
+					<c:choose>
+    															<c:when test="${empty movie.poster}">
+        															width="100vw" height="100vw" src="https://thumb7.shutterstock.com/display_pic_with_logo/457558/549465907/stock-vector-not-available-grunge-rubber-stamp-on-white-background-vector-illustration-549465907.jpg"
+    															</c:when>
+    														 <c:otherwise>
+        																src=<c:url value="${movie.poster}"/>
+    														 </c:otherwise>
+																</c:choose>
+					class="rounded" alt="${movie.title}">
 			</div>
 			<div class="col-sm-6">
 				<h2>${movie.title}</h2>
@@ -102,6 +112,32 @@
 				<h5>${movie.cast}</h5>
 				<h5>${movie.plot}</h5>
 				<h5>${movie.genres}</h5>
+			</div>
+		</div>
+	</div>
+
+	<div class="container" style="margin-top: 3vw">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="page-header">
+					<h1>
+						<small class="pull-right">${fn:length(comments)}</small>Comments
+					</h1>
+				</div>
+				<div class="comments-list">
+					<c:forEach items="${comments}" var="comment">
+						<div class="media">
+							<div class="media-body">
+								<h4 class="media-heading user_name">"${comment.name}"</h4>
+								"${comment.text}"
+							</div>
+						</div>
+
+					</c:forEach>
+				</div>
+
+
+
 			</div>
 		</div>
 	</div>
