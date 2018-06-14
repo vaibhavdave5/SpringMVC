@@ -88,13 +88,14 @@
 
 		<nav aria-label="...">
 				<ul class="pagination justify-content-center">
-					<li class="page-item disabled"><a class="page-link" href="#"
+					<li class="page-item"><a class="page-link" href="http://localhost:8080/project/nav?id=${currentPage-10}"
 						tabindex="-1">Previous</a></li>
-					<c:forEach begin="${currentPage}" end="${currentPage+10}"
+						<li class="page-item active"><a class="page-link" href="http://localhost:8080/project/nav?id=${currentPage}">${currentPage}</a></li>
+					<c:forEach begin="${currentPage+1}" end="${currentPage+10}"
 						varStatus="loop">
 						<li class="page-item"><a class="page-link" href="http://localhost:8080/project/nav?id=${loop.index}">${loop.index}</a></li>
 					</c:forEach>
-					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+					<li class="page-item"><a class="page-link" href="http://localhost:8080/project/nav?id=${currentPage+10}">Next</a></li>
 				</ul>
 		</nav>
 

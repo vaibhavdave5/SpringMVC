@@ -29,6 +29,7 @@ public class HomeController {
 	private ApplicationContext context;		
 	private UsersDAO dao;
 	private MoviesDAO mdao;
+	private int size = 46014;
 	
 	public HomeController() {
 		this.context = new ClassPathXmlApplicationContext("SpringConfig.xml");		
@@ -53,6 +54,12 @@ public class HomeController {
 	
 	@RequestMapping(value = "/nav", params="id", method = RequestMethod.GET)
     public String homeWithPagination(@RequestParam("id") int id, Model model) {
+		if(id<0) {
+			id=0;
+		}
+		if(id>size) {
+			id=size;
+		}
 		List<Movies> movies = mdao.findCurrentSet(id);
 		model.addAttribute("listOfMovies", movies);
 		model.addAttribute("currentPage", id);
