@@ -11,7 +11,7 @@
 		http://www.springframework.org/schema/data/mongo/spring-mongo-2.0.xsd">
 
 	<mongo:mongo-client 
-	host="mongodb+srv://analytics:analytics-password@mflix-ui0uw.mongodb.net/test?retryWrites=true" port="27017" />
+	host="mongodb+srv://analytics:analytics-password@mflix-zaq6o.mongodb.net/test?retryWrites=true" port="27017" />
 		<mongo:db-factory dbname="mflix" />
 
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">

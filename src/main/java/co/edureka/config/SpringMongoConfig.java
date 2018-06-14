@@ -14,7 +14,7 @@ public class SpringMongoConfig extends AbstractMongoConfiguration{
 	@Bean
 	public MongoClient mongoClient() {
 		MongoClientURI uri = new MongoClientURI
-				("mongodb+srv://analytics:analytics-password@mflix-ui0uw.mongodb.net/test?retryWrites=true");					    		
+				("mongodb+srv://analytics:analytics-password@mflix-zaq6o.mongodb.net/test?retryWrites=true");					    		
 		return new MongoClient(uri);
 	}
 

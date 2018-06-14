@@ -37,6 +37,7 @@ public class HomeController {
 		MoviesDAO mdao = context.getBean("moviesDAO", MoviesDAO.class); 
 		List<Movies> movies = mdao.findAll();
 		model.addAttribute("listOfMovies", movies);
+		System.out.println(movies.size());
 		return "home";
 	}
 	

@@ -91,7 +91,7 @@
 				<c:forEach items="${listOfMovies}" var="movie">
 					<div class="col-md-4">
 						<div class="card mb-4 box-shadow">
-							<img class="card-img-top" height="185.5vw"  src="<c:choose>
+							<img class="card-img-top" height="260.5vw"  src="<c:choose>
     															<c:when test="${empty movie.poster}">
         																https://thumb7.shutterstock.com/display_pic_with_logo/457558/549465907/stock-vector-not-available-grunge-rubber-stamp-on-white-background-vector-illustration-549465907.jpg
     															</c:when>
@@ -100,13 +100,10 @@
     														 </c:otherwise>
 																</c:choose>">
 							<div class="card-body">
-								<p class="card-text">This is a wider card with supporting
-									text below as a natural lead-in to additional content. This
-									content is a little bit longer.</p>
+								<div style="display: inline"><p><h5 class="card-title">${movie.title}</h5> <h6><span class="badge badge-warning"><strong>IMDB: ${movie.imdb.rating}</strong></h6></p></div>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
 										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-										<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
 									</div>
 									<small class="text-muted">9 mins</small>
 								</div>
