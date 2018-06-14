@@ -1,26 +1,26 @@
 package co.edureka.model;
 
 public class IMDB {
-	private float rating;
-	private int votes;
-	private int id;
+	private Float rating;
+	private Integer votes;
+	private Integer id;
 	
-	public float getRating() {
+	public Float getRating() {
 		return rating;
 	}
-	public void setRating(float rating) {
+	public void setRating(Float rating) {
 		this.rating = rating;
 	}
-	public int getVotes() {
+	public Integer getVotes() {
 		return votes;
 	}
-	public void setVotes(int votes) {
+	public void setVotes(Integer votes) {
 		this.votes = votes;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 }

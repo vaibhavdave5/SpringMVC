@@ -20,16 +20,16 @@ public class Movies {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public int getYear() {
+	public Integer getYear() {
 		return year;
 	}
-	public void setYear(int year) {
+	public void setYear(Integer year) {
 		this.year = year;
 	}
-	public int getRuntime() {
+	public String getRuntime() {
 		return runtime;
 	}
-	public void setRuntime(int runtime) {
+	public void setRuntime(String runtime) {
 		this.runtime = runtime;
 	}
 	public List<String> getCast() {
@@ -101,8 +101,8 @@ public class Movies {
 	@Id
 	private String id;
 	private String title;
-	private int year;
-	private int runtime;
+	private Integer year;
+	private String runtime;
 	private List<String> cast;
 	private String poster;
 	private String plot;

@@ -35,9 +35,9 @@ public class HomeController {
 		ApplicationContext context = new ClassPathXmlApplicationContext("SpringConfig.xml");		
 		UsersDAO dao = context.getBean("usersDAO", UsersDAO.class);
 		MoviesDAO mdao = context.getBean("moviesDAO", MoviesDAO.class); 
-		List<Movies> movies = mdao.findAll();
+		List<Movies> movies = mdao.findCurrentSet();
 		model.addAttribute("listOfMovies", movies);
-		System.out.println(movies.size());
+		System.out.println(mdao.findAll().size());
 		return "home";
 	}
 	

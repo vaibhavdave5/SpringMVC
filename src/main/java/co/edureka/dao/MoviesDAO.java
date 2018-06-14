@@ -19,7 +19,11 @@ public class MoviesDAO {
 		this.mongoOperations = context.getBean("mongoTemplate", MongoOperations.class);
 	}
 	
-	public List<Movies> findAll() {
+	public List<Movies> findCurrentSet() {
 		return mongoOperations.find(new Query().limit(12),Movies.class);
+	}
+	
+	public List<Movies> findAll() {
+		return mongoOperations.find(new Query(),Movies.class);
 	}
 }
