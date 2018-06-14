@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.*;
+
+import co.edureka.dao.CommentsDAO;
 import co.edureka.dao.MoviesDAO;
 import co.edureka.dao.UsersDAO;
 import co.edureka.model.Movies;
@@ -70,6 +72,7 @@ public class HomeController {
     public String view(@RequestParam("id") String id, Model model) {
 		Movies movie = mdao.findbyId(id);
 		model.addAttribute("movie", movie);
+		model.addAttribute("comments", new CommentsDAO().findCommentById(id));
 		return "view";
     }
 	

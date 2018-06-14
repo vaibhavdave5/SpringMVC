@@ -80,7 +80,7 @@
 				<div class="col-lg-12">
 					<h1>
 						<a href="" class="typewrite" data-period="2000"
-							data-type='[ "Hi, Im Vaibhav.", "Please Appreciate my work", "It takes time and effort to do such things", "I Love to Develop." ]'>
+							data-type='[ "Hi, I am Vaibhav.", "Please Appreciate my work", "It takes time and effort to do such things", "I Love to Develop." ]'>
 							<span class="wrap"></span>
 						</a>
 					</h1>
