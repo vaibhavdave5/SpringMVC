@@ -32,7 +32,7 @@
 	crossorigin="anonymous"></script>
 
 <!-- Custom styles for this template -->
-<link href="album.css" rel="stylesheet">
+<link href="<c:url value="/resources/main.css" />" rel="stylesheet">
 </head>
 
 <body>
@@ -71,32 +71,35 @@
 
 	<main role="main">
 
-	<section class="jumbotron text-center">
+	<div class="jumbotron jumbotron-billboard">
+		<div class="img"></div>
 		<div class="container">
-			<h1 class="jumbotron-heading">Album example</h1>
-			<p class="lead text-muted">Something short and leading about the
-				collection below—its contents, the creator, etc. Make it short and
-				sweet, but not too short so folks don't simply skip over it
-				entirely.</p>
-			<p>
-				<a href="#" class="btn btn-primary my-2">Main call to action</a> <a
-					href="#" class="btn btn-secondary my-2">Secondary action</a>
-			</p>
+			<div class="row">
+				<div class="col-lg-12">
+					<h2>Jumbotron</h2>
+					<p>Lorem ipsum is the best</p>
+					<a href="#" class="btn btn-success btn-lg">Sign Up</a>
+				</div>
+			</div>
 		</div>
-	</section>
+	</div>
 	<div class="album py-5 bg-light">
 
 		<nav aria-label="...">
-				<ul class="pagination justify-content-center">
-					<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/nav?id=${currentPage-10}"
-						tabindex="-1">Previous</a></li>
-						<li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/nav?id=${currentPage}">${currentPage}</a></li>
-					<c:forEach begin="${currentPage+1}" end="${currentPage+10}"
-						varStatus="loop">
-						<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/nav?id=${loop.index}">${loop.index}</a></li>
-					</c:forEach>
-					<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/nav?id=${currentPage+10}">Next</a></li>
-				</ul>
+			<ul class="pagination justify-content-center">
+				<li class="page-item"><a class="page-link"
+					href="${pageContext.request.contextPath}/nav?id=${currentPage-10}"
+					tabindex="-1">Previous</a></li>
+				<li class="page-item active"><a class="page-link"
+					href="${pageContext.request.contextPath}/nav?id=${currentPage}">${currentPage}</a></li>
+				<c:forEach begin="${currentPage+1}" end="${currentPage+10}"
+					varStatus="loop">
+					<li class="page-item"><a class="page-link"
+						href="${pageContext.request.contextPath}/nav?id=${loop.index}">${loop.index}</a></li>
+				</c:forEach>
+				<li class="page-item"><a class="page-link"
+					href="${pageContext.request.contextPath}/nav?id=${currentPage+10}">Next</a></li>
+			</ul>
 		</nav>
 
 		<div class="container">
@@ -128,7 +131,9 @@
 									<div class="btn-group">
 										<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
 									</div>
-									<small class="text-muted"><!-- Something can be added --></small>
+									<small class="text-muted">
+										<!-- Something can be added -->
+									</small>
 								</div>
 							</div>
 						</div>
