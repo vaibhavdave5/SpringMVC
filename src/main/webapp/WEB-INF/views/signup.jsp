@@ -10,8 +10,8 @@
 <head>
 </head>
 <body>
-	<h3>Welcome, Enter The Employee Details</h3>
-	<form:form method="POST" action="/addUser" modelAttribute="userForm">
+	<h3>Welcome Your Details</h3>
+	<form:form method="POST" action="/project/signup" modelAttribute="userForm">
 		<table>
 			<tr>
 				<td><spring:bind path="name">
@@ -28,7 +28,7 @@
 			<tr>
 				<td><spring:bind path="email">
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Name</label>
+							<label class="col-sm-2 control-label">Email</label>
 							<div class="col-sm-10">
 								<form:input path="email" type="text" class="form-control "
 									id="name" placeholder="Email" />
@@ -42,7 +42,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Password</label>
 							<div class="col-sm-10">
-								<form:input path="email" type="text" class="form-control "
+								<form:input path="password" type="text" class="form-control "
 									id="name" placeholder="Password" />
 								<form:errors path="password" class="control-label" />
 							</div>

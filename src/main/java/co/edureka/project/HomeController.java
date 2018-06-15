@@ -94,8 +94,9 @@ public class HomeController {
     public String saveUser(@ModelAttribute("userForm") Users user, 
     					   BindingResult resut, Model model,
     					   final RedirectAttributes redirectAttributes) {
-		
-		return "signup";
+		System.out.println(user.toString());
+		userService.saveOrUpdate(user);
+		return "home";
     }
 	
 	
