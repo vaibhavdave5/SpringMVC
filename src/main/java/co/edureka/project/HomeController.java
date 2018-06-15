@@ -1,18 +1,21 @@
 package co.edureka.project;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.*;
 
@@ -20,6 +23,8 @@ import co.edureka.dao.CommentsDAO;
 import co.edureka.dao.MoviesDAO;
 import co.edureka.dao.UsersDAO;
 import co.edureka.model.Movies;
+import co.edureka.model.Users;
+import co.edureka.service.UserService;
 
 /**
  * Handles requests for the application home page.
@@ -31,12 +36,15 @@ public class HomeController {
 	private ApplicationContext context;		
 	private UsersDAO dao;
 	private MoviesDAO mdao;
+	private UserService userService;
 	private int size = 46014;
+	
 	
 	public HomeController() {
 		this.context = new ClassPathXmlApplicationContext("SpringConfig.xml");		
 		this.dao = context.getBean("usersDAO", UsersDAO.class);
 		this.mdao = context.getBean("moviesDAO", MoviesDAO.class);
+		this.userService = context.getBean("userService", UserService.class);
 	}
 	
 	/**
@@ -75,5 +83,21 @@ public class HomeController {
 		model.addAttribute("comments", new CommentsDAO().findCommentById(id));
 		return "view";
     }
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String signUpPage(Locale locale, Model model) {
+		model.addAttribute("userForm", new Users());
+		return "signup";
+    }
+	
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public String saveUser(@ModelAttribute("userForm") Users user, 
+    					   BindingResult resut, Model model,
+    					   final RedirectAttributes redirectAttributes) {
+		
+		return "signup";
+    }
+	
+	
 	
 }

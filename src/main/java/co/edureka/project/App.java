@@ -13,8 +13,8 @@ public class App {
 	public static void main(String[] args) {	
 		ApplicationContext context = new ClassPathXmlApplicationContext("SpringConfig.xml");		
 		UsersDAO dao = context.getBean("usersDAO", UsersDAO.class);
-		Users user = new Users("vai2","vai2","vai2@gmail.com");
-		dao.insertUser(user);
+	//	Users user = new Users("vai2","vai2","vai2@gmail.com");
+	//	dao.insertUser(user);
 		//MoviesDAO mdao = context.getBean("moviesDAO", MoviesDAO.class);
 	//	System.out.println(mdao.findAll().get(5).getTitle());
 	}

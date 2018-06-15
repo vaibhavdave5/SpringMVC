@@ -13,10 +13,7 @@ public class Users {
 	private String password;
 	private String name;
 	
-	public Users(String name, String password, String email) {
-		this.name = name;
-		this.email = email;
-		this.password = password;
+	public Users() {
 	}
 	
 	public String getEmail() {

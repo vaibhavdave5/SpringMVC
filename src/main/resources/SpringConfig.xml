@@ -20,5 +20,7 @@
 	
 	<bean id="usersDAO" class="co.edureka.dao.UsersDAO" />
 	<bean id="moviesDAO" class="co.edureka.dao.MoviesDAO" />
-
+	<bean id="userService" class="co.edureka.service.UserService"></bean>
+	
+	<context:component-scan base-package="co.edureka.service"></context:component-scan>
 </beans>

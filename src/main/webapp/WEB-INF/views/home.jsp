@@ -83,9 +83,7 @@
 							data-type='[ "Hi, I am Vaibhav.", "Please Appreciate my work", "It takes time and effort to do such things", "I Love to Develop." ]'>
 							<span class="wrap"></span>
 						</a>
-					</h1>
-					<p>Lorem ipsum is the best</p>
-					<a href="#" class="btn btn-success btn-lg">Sign Up</a>
+					<a href="${pageContext.request.contextPath}/signup" class="btn btn-success btn-lg">Sign Up</a>
 				</div>
 			</div>
 		</div>
