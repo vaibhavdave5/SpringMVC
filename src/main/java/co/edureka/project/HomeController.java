@@ -92,10 +92,25 @@ public class HomeController {
 	
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String saveUser(@ModelAttribute("userForm") Users user, 
-    					   BindingResult resut, Model model,
+    					   BindingResult result, Model model,
     					   final RedirectAttributes redirectAttributes) {
 		System.out.println(user.toString());
 		userService.saveOrUpdate(user);
+		return "home";
+    }
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String enterLogin(Locale locale, Model model) {
+		model.addAttribute("loginForm", new Users());
+		return "login";
+    }
+	
+	@RequestMapping(value = "/loggedIn", method = RequestMethod.POST)
+    public String getUser(@ModelAttribute("loginForm") Users user, 
+    					   BindingResult result, Model model,
+    					   final RedirectAttributes redirectAttributes) {
+		Users loggedInUser = userService.getUser(user.getEmail(), user.getPassword());
+		System.out.println(loggedInUser.getName());
 		return "home";
     }
 	

@@ -10,21 +10,9 @@
 <head>
 </head>
 <body>
-	<h3>Welcome!! Enter Your Details</h3>
-	<form:form method="POST" action="/project/signup" modelAttribute="userForm">
+	<h3>Enter Your Details for LoggingIn</h3>
+	<form:form method="POST" action="/project/loggedIn" modelAttribute="loginForm">
 		<table>
-			<tr>
-				<td><spring:bind path="name">
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Name</label>
-							<div class="col-sm-10">
-								<form:input path="name" type="text" class="form-control "
-									id="name" placeholder="Name" />
-								<form:errors path="name" class="control-label" />
-							</div>
-						</div>
-					</spring:bind></td>
-			</tr>
 			<tr>
 				<td><spring:bind path="email">
 						<div class="form-group">

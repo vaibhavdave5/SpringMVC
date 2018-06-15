@@ -82,8 +82,9 @@
 						<a href="" class="typewrite" data-period="2000"
 							data-type='[ "Hi, I am Vaibhav.", "Please Appreciate my work", "It takes time and effort to do such things", "I Love to Develop." ]'>
 							<span class="wrap"></span>
-						</a>
+						</a></h1><br/>
 					<a href="${pageContext.request.contextPath}/signup" class="btn btn-success btn-lg">Sign Up</a>
+					<a href="${pageContext.request.contextPath}/login" class="btn btn-info btn-lg">Login</a>
 				</div>
 			</div>
 		</div>

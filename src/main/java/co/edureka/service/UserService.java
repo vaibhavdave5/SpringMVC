@@ -20,6 +20,10 @@ public class UserService {
 	public void saveOrUpdate(Users user) {
 		userDao.insertUser(user);
 	}
+	
+	public Users getUser(String email, String password) {
+		return userDao.findUser(email, password);
+	}
 
 	
 }
