@@ -66,7 +66,19 @@
 		<!-- Main header -->
 		<div class="navbar navbar-dark bg-dark box-shadow">
 			<div class="container d-flex justify-content-between">
-				<!-- Enter code here -->
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-4">
+							<form action="/action_page.php" method="GET">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Search"
+										name="search"><input id="mySubmit" type="submit" value="GO" class="hidden" />
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</header>
@@ -82,9 +94,12 @@
 						<a href="" class="typewrite" data-period="2000"
 							data-type='[ "Hi, I am Vaibhav.", "Please Appreciate my work", "It takes time and effort to do such things", "I Love to Develop." ]'>
 							<span class="wrap"></span>
-						</a></h1><br/>
-					<a href="${pageContext.request.contextPath}/signup" class="btn btn-success btn-lg">Sign Up</a>
-					<a href="${pageContext.request.contextPath}/login" class="btn btn-info btn-lg">Login</a>
+						</a>
+					</h1>
+					<br /> <a href="${pageContext.request.contextPath}/signup"
+						class="btn btn-success btn-lg">Sign Up</a> <a
+						href="${pageContext.request.contextPath}/login"
+						class="btn btn-info btn-lg">Login</a>
 				</div>
 			</div>
 		</div>

@@ -10,6 +10,8 @@
 <head>
 </head>
 <body>
+
+<p>${msg}</p>
 	<h3>Enter Your Details for LoggingIn</h3>
 	<form:form method="POST" action="/project/loggedIn" modelAttribute="loginForm">
 		<table>

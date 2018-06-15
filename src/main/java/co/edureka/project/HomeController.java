@@ -110,6 +110,10 @@ public class HomeController {
     					   BindingResult result, Model model,
     					   final RedirectAttributes redirectAttributes) {
 		Users loggedInUser = userService.getUser(user.getEmail(), user.getPassword());
+		if(loggedInUser==null) {
+			model.addAttribute("msg", "Invalid User ID and/or password");
+			return "login";
+		}
 		System.out.println(loggedInUser.getName());
 		return "home";
     }
