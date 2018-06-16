@@ -69,10 +69,10 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-4">
-							<form action="/action_page.php" method="GET">
+							<form action="/search" method="GET">
 								<div class="input-group">
 									<input type="text" class="form-control" placeholder="Search"
-										name="search"><input id="mySubmit" type="submit" value="GO" class="hidden" />
+										name="search" id="search"><input id="mySubmit" type="submit" value="GO" class="hidden" />
 								</div>
 							</form>
 						</div>

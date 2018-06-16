@@ -6,6 +6,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.TextCriteria;
+import org.springframework.data.mongodb.core.query.TextQuery;
 
 import java.util.List;
 import co.edureka.config.SpringMongoConfig;
@@ -23,6 +25,13 @@ public class MoviesDAO {
 	
 	public List<Movies> findCurrentSet(int skip) {
 		return mongoOperations.find(new Query().skip(skip*12).limit(12),Movies.class);
+	}
+	
+	public List<Movies> findbyText(String search) {
+		TextCriteria criteria = TextCriteria.forDefaultLanguage().matching(search);
+		Query query = TextQuery.queryText(criteria);
+		
+		return mongoOperations.find(query,Movies.class);
 	}
 	
 	public Movies findbyId(String id) {

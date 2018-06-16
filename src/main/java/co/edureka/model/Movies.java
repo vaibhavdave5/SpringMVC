@@ -3,6 +3,7 @@ package co.edureka.model;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "movies")
@@ -100,15 +101,19 @@ public class Movies {
 	}
 	@Id
 	private String id;
+	
+	@TextIndexed
 	private String title;
 	private Integer year;
 	private String runtime;
+	@TextIndexed
 	private List<String> cast;
 	private String poster;
 	private String plot;
 	private String fullplot;
 	private String lastupdated;
 	private String type;
+	@TextIndexed
 	private List<String> directors;
 	private IMDB imdb;
 	private String countries;

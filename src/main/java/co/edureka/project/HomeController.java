@@ -118,6 +118,11 @@ public class HomeController {
 		return "home";
     }
 	
-	
+	@RequestMapping(value = "/search", params="search", method = RequestMethod.GET)
+    public String initSearch(@RequestParam("search") String search, Model model) {
+		List<Movies> movies = mdao.findbyText(search);
+		model.addAttribute("listOfMovies", movies);
+		return "home";
+    }
 	
 }
