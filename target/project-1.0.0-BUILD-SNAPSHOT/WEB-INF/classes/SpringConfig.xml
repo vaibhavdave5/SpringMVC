@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	    http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/data/mongo 
+		http://www.springframework.org/schema/data/mongo/spring-mongo-2.0.xsd">
+
+	<mongo:mongo-client 
+	host="mongodb+srv://analytics:analytics-password@mflix-zaq6o.mongodb.net/test?retryWrites=true" port="27017" />
+		<mongo:db-factory dbname="mflix" />
+
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+	</bean>
+	
+	<bean id="usersDAO" class="co.edureka.dao.UsersDAO" />
+	<bean id="moviesDAO" class="co.edureka.dao.MoviesDAO" />
+	<bean id="userService" class="co.edureka.service.UserService"></bean>
+	
+	<context:component-scan base-package="co.edureka.service"></context:component-scan>
+</beans>
